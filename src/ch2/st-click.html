@@ -1,0 +1,27 @@
+<!DOCTYPE html><html><head>
+  <meta charset="utf-8">
+  <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+  <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+</head><body>
+  <div id="root"></div>
+  <script type="text/babel">
+    // コンポーネントの定義
+    class Hello extends React.Component {
+      render () {
+        // イベントを定義
+        const clickHandler = (e) => {
+          window.alert('こんにちは。')
+        }
+        // クリックイベントを指定
+        return (
+          <div onClick={clickHandler}>Click Me</div>
+        )
+      }
+    }
+    // コンポーネントを使う
+    ReactDOM.render(
+      <Hello />,
+      document.getElementById('root'))
+  </script>
+</body></html>

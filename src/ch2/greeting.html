@@ -1,0 +1,26 @@
+<!DOCTYPE html><html><head>
+  <meta charset="utf-8">
+  <!-- ライブラリの取り込み ───(※1) -->
+  <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+  <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+</head><body>
+  <!-- 要素の定義 ───(※2) -->
+  <div id="disp"></div>
+  <!-- スクリプトの定義 ───(※3) -->
+  <script type="text/babel">
+    // 挨拶を取得してDOMに設定 --- (※4)
+    const root = document.querySelector('#disp')
+    const msg = getGreeting()
+    ReactDOM.render(msg, root)
+    // 挨拶を返す関数 --- (※5)
+    function getGreeting () {
+      // ランダムな値を得る
+      const r = Math.floor(Math.random() * 3)
+      // 値に応じてメッセージを返す
+      if (r == 0) return <p>今日も頑張りましょう。</p>
+      if (r == 1) return <p>こんにちは。</p>
+      if (r == 2) return <p>朗らかな日ですね。</p>
+    }
+  </script>
+</body></html>

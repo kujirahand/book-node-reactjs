@@ -1,0 +1,24 @@
+<!DOCTYPE html><html><head>
+  <meta charset="utf-8">
+  <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+  <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+</head><body>
+  <div id="root"></div>
+  <script type="text/babel">
+    // 定期的に時間を表示
+    setInterval(showClock, 1000)
+    // 毎秒実行される関数
+    function showClock () {
+      const d = new Date()
+      const hour = d.getHours()
+      const min = d.getMinutes()
+      const sec = d.getSeconds()
+      const elem = <div>
+          {hour}:{min}:{sec}
+        </div>;
+      const root = document.getElementById("root")
+      ReactDOM.render(elem, root)
+    }
+  </script>
+</body></html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html><html><head>
+  <meta charset="utf-8">
+  <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+  <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+</head><body>
+  <div id="root"></div>
+  <script type="text/babel">
+  // 定期的に時間を表示
+  setInterval(showClock, 1000)
+  // 毎秒実行される関数
+  function showClock () {
+      const d = new Date()
+      const [hour, min, sec] = [ // 時分秒を各変数に代入 --- (※1)
+        d.getHours(),
+        d.getMinutes(),
+        d.getSeconds()]
+      const z2 = (v) => { // 0で埋めて表示する関数を定義 --- (※2)
+        const s = "00" + v
+        return s.substr(s.length - 2, 2)
+      }
+      // 表示するDOMを指定 --- (※3)
+      const elem = (<div>
+        {z2(hour)}:{z2(min)}:{z2(sec)}
+      </div>);
+      // DOMを書き換える
+      ReactDOM.render(elem,
+        document.getElementById("root"))
+    }
+  </script>
+</body></html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+  <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+  <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+</head><body>
+  <div id="root"></div>
+  <script type="text/babel">
+    // 変数を定義 --- (※1)
+    const title = "書道";
+    const imgUrl = "uta.pw/shodou/img/28/214.png";
+    // JSXで要素を定義 --- (※2)
+    const msg =
+      <div>
+        <h1>{title}</h1>
+        <p><img src="http://{imgUrl}" /></p>
+      </div>;
+    // render()で描画 --- (※3)
+    const elm = document.getElementById("root");
+    ReactDOM.render(msg, elm);
+  </script>
+</body></html>

@@ -1,0 +1,10 @@
+.multiForm {
+  width: 400px;
+  text-align: left;
+  margin-left: auto;
+}
+
+.multiForm p {
+  margin: 4px;
+  padding: 4px;
+}

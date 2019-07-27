@@ -1,0 +1,40 @@
+<!DOCTYPE html><html><head>
+  <meta charset="utf-8">
+  <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+  <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+  <style> body { font-size:32px; text-align:center; } </style>
+</head><body>
+  <div>
+    <div id="disp"></div>
+  </div>
+  <script type="text/babel">
+    // ページが表示されるとタイマーが自動的に開始
+    let sTime = new Date()
+    update()
+    // タイマーを更新する
+    function update () {
+      const now = new Date()
+      const iv = now.getTime() - sTime.getTime()
+      const tm = Math.floor(iv / 1000)
+      const sec = tm % 60
+      const min = Math.floor(tm / 60)
+      const hour = Math.floor(min / 60)
+      updateDisp([hour, min, sec])
+      setTimeout(update, 1000)
+    }
+    // ReactでDOMを書き換え ---- (*1)
+    function updateDisp (dispObj) {
+      const [h, m, s] = dispObj
+      const dom = <div>
+        <span>{z2(h)}:{z2(m)}:{z2(s)}</span>
+      </div>
+      const disp = document.getElementById('disp')
+      ReactDOM.render(dom, disp)
+    }
+    function z2 (v) {
+      v = String("00" + v)
+      return v.substr(v.length - 2, 2)
+    }
+  </script>
+</body></html>

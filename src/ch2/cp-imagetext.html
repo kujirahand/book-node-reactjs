@@ -1,0 +1,33 @@
+<!DOCTYPE html><html><head>
+  <meta charset="utf-8">
+  <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+  <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+</head><body>
+  <div id="root"></div>
+  <script type="text/babel">
+    // コンポーネントを利用 --- (※1)
+    const dom = <div>
+      <PhotoText image="pic1" label="南国の浜辺でゆったり" />
+      <PhotoText image="pic2" label="南国の海は開放的" />
+      <PhotoText image="pic3" label="海、海、海、青い海" />
+    </div>
+    // ReactでDOMを書き換え
+    ReactDOM.render(dom,
+      document.getElementById('root'))
+    // 関数でコンポーネントを定義 --- (※2)
+    function PhotoText (props) {
+      const url = "img/" + props.image + ".jpeg"
+      const label = props.label
+      const boxStyle = {
+        border: "1px solid silver",
+        margin: "8px",
+        padding: "4px"
+      }
+      return <div style={boxStyle}>
+          <img src={url} width="128"/>
+          <span> {label} </span>
+      </div>
+    }
+  </script>
+</body></html>

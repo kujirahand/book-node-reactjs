@@ -1,0 +1,38 @@
+<!DOCTYPE html><html><head>
+  <meta charset="utf-8">
+  <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+  <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+</head><body>
+  <div id="root"></div>
+  <script type="text/babel">
+    class MyCompo extends React.Component {
+      constructor (props) {
+        super(props)
+        this.state = { value: '' }
+      }
+      render () {
+        this.preInput = <input
+          type='text'
+          ref={i => { this.realInput = i }}
+          onClick={e => this.doClick(e)} />
+        return (<div>
+          {this.preInput}
+        </div>)
+      }
+      doClick (e) {
+        // 合致するか？
+        console.log(this.preInput)
+        console.log(this.realInput)
+        if (this.preInput === this.realInput) {
+          console.log('同じ')
+        } else {
+          console.log('異なる')
+        }
+      }
+    }
+    // DOMを書き換え
+    ReactDOM.render(<div><MyCompo /></div>,
+      document.getElementById('root'))
+  </script>
+</body></html>

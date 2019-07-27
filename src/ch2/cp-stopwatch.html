@@ -1,0 +1,44 @@
+<!DOCTYPE html><html><head>
+  <meta charset="utf-8">
+  <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+  <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+  <style> body { font-size:32px; text-align:center; } </style>
+</head><body>
+  <div id="root"></div>
+  <script type="text/babel">
+    // ストップウォッチコンポーネントを定義
+    class Stopwatch extends React.Component {
+      constructor (props) {
+        super(props)
+        this.start = null
+        setInterval(() => {
+          this.render()
+        }, 1000);
+      }
+      render () {
+        if (this.start == null) {
+          const start = () => {
+            this.start = new Date()
+          }
+          return <div>
+            <button onClick="start()">START</button>
+          </div>
+        }
+        const now = new Date()
+        const iv = now.getTime() - sTime.getTime()
+        const tm = Math.floor(iv / 1000)
+        const sec = tm % 60
+        const min = Math.floor(tm / 60)
+        const hour = Math.floor(min / 60)
+        return <div>
+          {z2(hour)}:{z2(min)}:{z2(sec)}
+        </div>
+      }
+    }
+
+    // Stop Watchを描画
+    ReactDOM.render(<Stopwatch />,
+      document.getElementById('root'))
+  </script>
+</body></html>

@@ -1,0 +1,32 @@
+h1 {
+  border-bottom: 2px solid #c0c0ff; 
+  padding: 8px;
+  background-color: #f0f0ff;
+}
+
+h2 {
+  border-bottom: 2px solid #c0c0ff; 
+  padding: 8px;
+  background-color: #f0f0ff;
+}
+
+input {
+  width: 280px;
+  background-color: #fff0f0;
+}
+
+button {
+}
+
+blockquote {
+  background-color: #f0f0ff;
+  border-left: 2px dotted #c0c0ff;
+  margin-left: 2em;
+  padding: 8px;
+}
+
+textarea {
+  font-size: 1em;
+  padding: 8px;
+}
+

@@ -1,0 +1,14 @@
+{
+  "name": "babeltest",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "babel bmi.js -o bmi.out.js",
+    "watch": "babel bmi.js -w -o bmi.out.js",
+    "start": "node bmi.out.js"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0"
+  }
+}

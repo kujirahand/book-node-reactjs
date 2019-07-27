@@ -1,0 +1,62 @@
+<!DOCTYPE html><html><head>
+  <meta charset="utf-8">
+  <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+  <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+</head><body>
+  <div id="root"></div>
+  <script type="text/babel">
+    // フォームコンポーネント
+    class LoginForm extends React.Component {
+      constructor (props) {
+        super(props)
+        this.state = {
+          user: '',
+          pass: ''
+        }
+      }
+      render () {
+        const doSubmit = e => this.doSubmit(e)
+        const doChange = e => this.doChange(e)
+        // 描画内容 --- (※1)
+        return (<form onSubmit={doSubmit}>
+          <label>ユーザー名:<br />
+            <input type='text' name='user'
+              ref={ (i)=>{ this.user = i } }
+              value={this.state.user}
+              onChange={doChange} />
+          </label><br />
+          <label>パスワード:<br />
+            <input type='password' name='pass'
+              ref={ (i) => { this.pass = i } }
+              value={this.state.pass}
+              onChange={doChange} />
+          </label><br />
+          <input type='submit' value='送信' />
+        </form>)
+      }
+      doChange (e) {
+        const key = e.target.name
+        this.setState({
+          [key]: e.target.value
+        })
+      }
+      doSubmit (e) {
+        e.preventDefault()
+        // 値が空の場合にinput要素をフォーカス --- (※2)
+        if (!this.state.user) {
+          this.user.focus()
+          return
+        }
+        if (!this.state.pass) {
+          this.pass.focus()
+          return
+        }
+        window.alert(JSON.stringify(this.state))
+      }
+    }
+    // DOMを書き換え
+    ReactDOM.render(<div><LoginForm /></div>,
+      document.getElementById('root'))
+  </script>
+</body></html>

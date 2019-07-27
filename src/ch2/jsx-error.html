@@ -1,0 +1,22 @@
+<!DOCTYPE html><html><head>
+  <meta charset="utf-8">
+  <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+  <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+</head><body>
+  <div id="root"></div>
+  <script type="text/babel">
+    // ReactでDOMを書き換える
+    ReactDOM.render(
+      getDOM(),
+      document.getElementById('root')
+    )
+    // 要素を返す関数
+    function getDOM() {
+      return (
+      <div><p>捨てるのに時がある</p></div>
+      <div><p>捨てるのに時がある</p></div>
+      )
+    }
+  </script>
+</body></html>

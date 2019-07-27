@@ -1,0 +1,46 @@
+<!DOCTYPE html><html><head>
+  <meta charset="utf-8">
+  <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+  <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+  <style> body { font-size:32px; text-align:center; } </style>
+</head><body>
+  <div><div id="disp"></div></div>
+  <script type="text/babel">
+    // 定期的に画面を更新するように指定
+    setInterval(update, 1000)
+    // タイマーを更新する
+    function update () {
+      // 現在時刻を二進数に変換 ---- (※1)
+      const now = new Date();
+      const hh = z2(now.getHours())
+      const mm = z2(now.getMinutes())
+      const ss = z2(now.getSeconds())
+      const binStr = hh + mm + ss
+      const style0 = { color: 'brown' }
+      const style1 = { color: 'red'}
+      const lines = []
+      for (let i = 0; i < binStr.length; i++) {
+        const v = parseInt(binStr.substr(i, 1))
+        const bin = "0000" + v.toString(2)
+        const bin8 = bin.substr(bin.length - 4, 4)
+        // 二進数を構成するReactオブジェクトを配列linesに追加 --- (※2)
+        for (let j = 0; j < bin8.length; j++) {
+          if (bin8.substr(j, 1) === '0') {
+            lines.push(<span style={style0}>○</span>)
+          } else {
+            lines.push(<span style={style1}>●</span>)
+          }
+        }
+        lines.push(<br />)
+      }
+      // DOMを書き換え --- (※3)
+      const disp = document.getElementById('disp')
+      ReactDOM.render(<div>{lines}</div>, disp)
+    }
+    function z2 (v) {
+      v = String("00" + v)
+      return v.substr(v.length - 2, 2)
+    }
+  </script>
+</body></html>

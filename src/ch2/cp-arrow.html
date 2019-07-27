@@ -1,0 +1,36 @@
+<!DOCTYPE html><html><head>
+  <meta charset="utf-8">
+  <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+  <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+</head><body>
+  <div id="root"></div>
+  <script type="text/babel">
+    // アロー演算子でコンポーネント定義
+    const TitleParts = (props) => (
+      <div style={{backgroundColor: 'red', color: 'white'}}>
+        <h3>{props.title}</h3>
+      </div>
+    )
+    const ContentParts = (props) => (
+      <div style={{border: '1px solid blue', margin: 15}}>
+        <div>あらすじ: {props.body}</div>
+      </div>
+    )
+    // メインコンポーネント
+    const Book = (props) => (
+      <div>
+        <TitleParts title={props.title} />
+        <ContentParts body={props.body} />
+      </div>
+    )
+    // ReactでDOMを書き換え
+    ReactDOM.render(
+      (<div>
+        <Book title='三国志' body='昔の中国の話' />
+        <Book title='民数記' body='昔のイスラエルの話' />
+        <Book title='西遊記' body='猿が活躍する話' />
+      </div>),
+      document.getElementById('root'))
+  </script>
+</body></html>
