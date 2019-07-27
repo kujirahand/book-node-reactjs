@@ -3,5 +3,5 @@
 サンプルコード
 
  - (サポートサイト) https://kujirahand.com/blog/go.php?758
- - (購入) https://goo.gl/54XRRQ
+ - (Amazonで購入) https://amzn.to/2KcE1Tw
  
