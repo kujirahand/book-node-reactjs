@@ -6,6 +6,6 @@
     "check": "node -v"
   },
   "dependencies": {
-    "colors": "^1.4.1"
+    "colors": "1.4.0"
   }
 }
